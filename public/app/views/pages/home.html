@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="angular.js@*" data-semver="1.2.13" src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    
+  </head>
+
+  <body ng-app="myApp" ng-controller="MyCtrl">
+       
+        <img src="http://uploads.webestools.com/upload_tosbselowe333.gif"/>
+         <img src="http://uploads.webestools.com/upload_tbsloweose332.gif"/>
+         <img src="http://www.wecareinvest.com/wp-content/uploads/2014/04/Property-to-Buy-in-India-from-Canadians.jpg"/>
+         <img src="http://www.track2realty.com/wp-content/uploads/2011/09/Private-equity-real-estate.jpg"/>
+
+
+    <img ng-src="{{image}}"/>
+  </body>
+
+</html>
+
+<div class="jumbotron text-center" ng-if="!main.loggedIn">
+	
+	<div>
+		<h2>THE BEST PLACE TO BUY A PROPERTY</h2>
+	</div>
+
+	<div>
+		<p>Login to List your Property</p>
+		<a href="/login" class="btn btn-primary">Login</a>
+	</div>
+</div>
+
+
+
+<div class="row" ng-if="main.loggedIn">
+
+	<div class="col-md-3">
+
+
+	</div>
+
+	<div class="col-md-4" ng-controller="StoryController as story">
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Write your Address</div>
+
+				<div class="panel-body">
+				<form ng-submit="story.createStory()">
+				<input class="form-control input-lg" type="text" ng-model="story.storyData.content" placeholder=".....">
+				
+				</form>
+				</div>
+			</div>
+
+			<div class="panel panel-success">
+				<div class="panel-heading">Your Address</div>
+				<div class="panel-body" ng-repeat="each in story.stories | reverse">
+					<p>{{ each.content }}</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="col-md-3">
+
+
+	</div>
+
+
+</div>
+
